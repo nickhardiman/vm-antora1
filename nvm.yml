@@ -13,7 +13,8 @@
         # Tell bash to be interactive (-i) and login (-l) before running the command (-c).
     - name: is nvm already installed?
       ansible.builtin.shell: 
-        cmd: bash -i -l -c 'source ~/.bashrc && nvm -v'
+        cmd: bash -i -l -c 'nvm -v'
+        #cmd: bash -i -l -c 'source ~/.bashrc && nvm -v'
       register: r_nvm
       ignore_errors: yes
 
