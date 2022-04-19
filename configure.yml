@@ -3,20 +3,25 @@
   hosts: web_server
   become: yes
   gather_facts: no
-    #remote_user: nick
-  vars_files:
-    - vars/main.yml
+  #remote_user: nick
+  roles:
+    - ansible-target
   tasks:
 
-  - name: Add the user 'ansible' with a bash shell, appending the group 'wheel'
-    ansible.builtin.user:
-      name: ansible
-      groups: wheel
-      append: yes
-
-  - name: Set authorized key taken from file
-    ansible.posix.authorized_key:
-      user: ansible
-      state: present
-      key: "{{ lookup('file', '/home/nick/.ssh/id_rsa.pub') }}"
-
+# lots more 
+# view git1 setup in 
+# /Users/nickhardiman/Documents/red-hat/job/summit/rh-summit_OD1226-machines.txt
+# passwordless sudo, etc. 
+# nvm
+# /Users/nickhardiman/Documents/tech/product/node/nvm-notes.txt
+# https://github.com/nvm-sh/nvm#ansible
+# node
+# nvm install --lts
+# antora
+# /Users/nickhardiman/Documents/tech/product/antora/antora-notes.txt
+# https://docs.antora.org/antora/latest/install-and-run-quickstart/
+# apache
+# docroot
+# /home/nick/articles-rhel9-build/build/site/
+# antora lunr extension 
+# antora-search-notes.txt
