@@ -1,0 +1,36 @@
+---
+- name: install nvm
+  hosts: web_server
+  become: yes
+  gather_facts: no
+  vars:
+    tag: v0.39.1
+    nvm_installed: no
+  tasks:
+
+        # nvm is a function, not an executable file.
+        # It is sourced using login resource files.
+        # Tell bash to be interactive (-i) and login (-l) before running the command (-c).
+    - name: is nvm already installed?
+      ansible.builtin.shell: 
+        cmd: bash -i -l -c 'source ~/.bashrc && nvm -v'
+      register: r_nvm
+      ignore_errors: yes
+
+    - set_fact:
+        nvm_installed: yes
+      when: r_nvm.rc == 0
+    
+    - debug:
+        var: nvm_installed
+
+    - name: Install nvm
+      ansible.builtin.shell: >
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/{{ tag }}/install.sh | bash
+      args:
+        executable: /bin/bash
+        chdir: "$HOME"
+        creates: "$HOME/.nvm/nvm.sh"
+      when: not nvm_installed
+      changed_when: yes
+

@@ -86,13 +86,14 @@ kexec-tools
 
 # script section
 %post --log=/root/ks-post.log
-# subscription
+#
+# register
 # use your Red Hat developer account
-#/usr/sbin/subscription-manager register --username=nhardima1 --password='!q2w3e4r'
-#/usr/sbin/subscription-manager attach --pool=8a85f99c7d76f2fd017d96c343f40655
+/usr/sbin/subscription-manager register --username={{ rhsm_user }} --password='{{ rhsm_password }}'
+/usr/sbin/subscription-manager attach --pool={{ rhsm_pool_id }}
+#
 # package update
 # not doing this may cause error
 /usr/bin/dnf -y update
 %end
-
 

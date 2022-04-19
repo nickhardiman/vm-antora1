@@ -8,10 +8,8 @@
     - ansible-target
   tasks:
 
+
 # lots more 
-# view git1 setup in 
-# /Users/nickhardiman/Documents/red-hat/job/summit/rh-summit_OD1226-machines.txt
-# passwordless sudo, etc. 
 # nvm
 # /Users/nickhardiman/Documents/tech/product/node/nvm-notes.txt
 # https://github.com/nvm-sh/nvm#ansible

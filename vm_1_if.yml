@@ -17,6 +17,9 @@
 # Not sparse!
 # I've done something wrong here, or in the kickstart file.
 # 
+# If the disk already exists, this command fails with 
+#   ERROR    Disk /var/lib/libvirt/images/my_new_vm.qcow2 is already in use by other guests ['my_new_vm']. 
+#
 - name: create VM, kickstart install
   ansible.builtin.command:
     cmd: >
