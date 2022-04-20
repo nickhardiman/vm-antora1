@@ -6,6 +6,7 @@
   #remote_user: nick
   roles:
     - ansible-target
+    - ansible-antora-generator
   tasks:
 
 
@@ -23,3 +24,4 @@
 # /home/nick/articles-rhel9-build/build/site/
 # antora lunr extension 
 # antora-search-notes.txt
+
