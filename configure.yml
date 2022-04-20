@@ -1,27 +1,24 @@
 ---
-- name: configure antora1
+- name: lay the foundation
   hosts: web_server
   become: yes
   gather_facts: no
   #remote_user: nick
   roles:
     - ansible-target
+    - ansible-web-server
+
+- name: build the antora application
+  hosts: web_server
+  become: no
+  gather_facts: no
+  # make sure the remote authorized_keys file contains ansible's public key
+  remote_user: nick
+  roles:
     - ansible-antora-generator
-  tasks:
 
 
-# lots more 
-# nvm
-# /Users/nickhardiman/Documents/tech/product/node/nvm-notes.txt
-# https://github.com/nvm-sh/nvm#ansible
-# node
-# nvm install --lts
-# antora
-# /Users/nickhardiman/Documents/tech/product/antora/antora-notes.txt
-# https://docs.antora.org/antora/latest/install-and-run-quickstart/
-# apache
-# docroot
-# /home/nick/articles-rhel9-build/build/site/
+# to do
 # antora lunr extension 
 # antora-search-notes.txt
 
