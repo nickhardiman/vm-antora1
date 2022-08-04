@@ -3,6 +3,10 @@ host: antora2
 #host: antora1
 # list in https://hardiman.consulting/rhel/9/set-up/host1-libvirt-network.html
 if1_mac: "52:54:00:00:00:12"
+# In the real world, this password would be protected with encryption.
+# see 
+# https://docs.ansible.com/ansible/latest/user_guide/vault.html#encrypting-individual-variables-with-ansible-vault
+user_ansible_pass: Password;1
 
 # Red Hat Subscription Manager
 rhsm_name: my_subscription_name
