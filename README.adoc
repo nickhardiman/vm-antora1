@@ -7,6 +7,20 @@ No main.yml yet, just these playbooks.
 * configure.yml. Uses https://github.com/nickhardiman/ansible-target to add an ansible user. 
 * remove.yml. Delete the VM. Uses virsh.
 
+!!!
+
+```
+# get the code
+git clone https://github.com/nickhardiman/vm-antora1
+cd vm-antora1
+# install roles to ~/.ansible/roles/
+ansible-galaxy install -r roles/requirements.yml 
+# build the machine
+ansible-playbook --ask-become-pass  main.yml
+# test 
+???
+```
+
 == prereqs 
 
 * A physical machine running RHEL 9

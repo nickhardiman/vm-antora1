@@ -1,6 +1,7 @@
 ---
 - name: build antora1 machine
-  hosts: hypervisor
+  hosts: localhost
+  #hosts: hypervisor
   become: yes
   gather_facts: no
   roles: 
