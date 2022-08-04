@@ -4,6 +4,7 @@
 #   https://galaxy.ansible.com/docs/using/installing.html
 #
 roles:
+  - src: https://github.com/nickhardiman/libvirt-guest
   - src: https://github.com/nickhardiman/ansible-target
   - src: https://github.com/nickhardiman/ansible-web-server
   - src: https://github.com/nickhardiman/ansible-antora-generator

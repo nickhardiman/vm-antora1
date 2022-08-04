@@ -1,6 +1,13 @@
 ---
+host: antora1
+
 # Red Hat Subscription Manager
 rhsm_name: my_subscription_name
 rhsm_password: my_subscription_password
 rhsm_pool: my_subscription_pool_id
+
+user: nick
+inventory: "./inventory.ini"
+remote_user: ansible_user
+private_key_file: "/home/{{ user }}/.ssh/ansible-key.priv"
 
