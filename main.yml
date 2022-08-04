@@ -1,19 +1,28 @@
 ---
-- name: build antora1 machine
+- name: build new machine
   hosts: localhost
   #hosts: hypervisor
   become: yes
   gather_facts: no
   roles: 
   - role: libvirt-guest
-    vars:
-      host: antora1
-      # list in https://hardiman.consulting/rhel/9/set-up/host1-libvirt-network.html
-      if1_mac: "52:54:00:00:00:17"
+    # !!!
+    ignore_errors: yes
+
+- name: check new machine
+  hosts: web_server
+  become: no
+  gather_facts: no
+  tasks:
+  - name: Wait for new server to be ready
+    ansible.builtin.wait_for_connection:
+      timeout: 30
 
 - name: install the foundation
   hosts: web_server
   become: yes
+  vars:
+    ansible_become_password: Password;1
   gather_facts: no
   roles:
     - ansible-target

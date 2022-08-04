@@ -9,4 +9,6 @@ roles:
   - src: https://github.com/nickhardiman/ansible-target
   - src: https://github.com/nickhardiman/ansible-web-server
   - src: https://github.com/nickhardiman/ansible-antora-generator
+collections:
+  - name: ansible.posix
 
