@@ -1,5 +1,8 @@
+#  ansible-playbook  --ask-become-pass  delete.yml
+# or
+#  ansible-playbook  --become-password-file=~/my-pass --extra-var='host=another-host' delete.yml
 ---
-- name: remove antora1
+- name: remove virt domain
   hosts: localhost
   become: yes
   gather_facts: no
