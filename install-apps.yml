@@ -1,15 +1,14 @@
-- name: install the foundation
+# I want antora installed using my account, not ansible's.
+#
+- name: build the antora application
   hosts: web_server
   become: yes
-  # override user password for privilege escalation.
-  # ansible already has a become password for localhost.
-  # this new host has a different become password.
-  # By the time the role is finished, user has passwordless sudo and this is no longer needed.
-  vars:
-    ansible_become_password: "{{ user_ansible_pass }}"
+  become_user: "{{ user }}"
   gather_facts: no
+  # make sure the remote authorized_keys file contains ansible's public key
   roles:
-    - ansible-target
-    - ansible-web-server
+    - ansible-antora-generator
 
-
+# todo
+# antora lunr extension 
+# antora-search-notes.txt
