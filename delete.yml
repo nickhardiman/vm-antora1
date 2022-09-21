@@ -3,7 +3,7 @@
 #   ansible-playbook  --become-password-file=~/my_pass --extra-var='host=some_host' delete.yml
 #
 # remove the virtual machine
-- hosts: localhost
+- hosts: hypervisor
   become: yes
   vars:
     host: antora1
