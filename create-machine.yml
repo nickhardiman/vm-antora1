@@ -6,8 +6,6 @@
   gather_facts: no
   roles: 
   - role: libvirt-guest
-    # !!!
-    ignore_errors: yes
 
 - name: check new machine
   hosts: web_server
