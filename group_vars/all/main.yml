@@ -36,6 +36,7 @@ server_cn: "{{ fqdn }}"
 # kickstart
 
 # accounts
+user_admin_name: nick
 user_ansible_password: Password;1
 # server certificate
 server_dir: /root/ca

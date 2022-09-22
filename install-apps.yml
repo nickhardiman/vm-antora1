@@ -2,8 +2,8 @@
 #
 - name: build the antora application
   hosts: web_server
-  become: yes
-  become_user: "{{ user }}"
+  # a few tasks do require elevated privileges
+  become: no
   gather_facts: no
   # make sure the remote authorized_keys file contains ansible's public key
   roles:
